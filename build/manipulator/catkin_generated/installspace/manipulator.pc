@@ -1,0 +1,8 @@
+prefix=/home/chinarrm23/hackathon_ws/install
+
+Name: manipulator
+Description: Description of manipulator
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,2 @@
+manipulator
+-DCATKIN_DEVEL_PREFIX=/home/chinarrm23/hackathon_ws/devel -DCMAKE_INSTALL_PREFIX=/home/chinarrm23/hackathon_ws/install -G Unix Makefiles
