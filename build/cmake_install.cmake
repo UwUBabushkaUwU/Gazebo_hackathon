@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/chinarrm23/hackathon_ws/build/gtest/cmake_install.cmake")
+  include("/home/chinarrm23/hackathon_ws/build/fanipulator/cmake_install.cmake")
   include("/home/chinarrm23/hackathon_ws/build/manipulator/cmake_install.cmake")
 
 endif()

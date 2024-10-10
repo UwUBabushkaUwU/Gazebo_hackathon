@@ -1,0 +1,8 @@
+prefix=/home/chinarrm23/hackathon_ws/devel
+
+Name: fanipulator
+Description: Description of fanipulator
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

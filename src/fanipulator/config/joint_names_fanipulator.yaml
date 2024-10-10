@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'joint_base_waist', 'joint_waist_arm01', 'joint_arm01_arm02', 'joint_arm02_arm03', 'joint_arm03_wrist', 'joint_wrist_motor_gear', 'joint_motor_gear_finger', 'joint_wrist_non_motor_gear', 'joint_non_motor_gear_finger', 'joint_wrist_motor_support', 'joint_wrist_non_motor_support', ]

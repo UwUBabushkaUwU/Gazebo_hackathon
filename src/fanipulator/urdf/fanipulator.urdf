@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="fanipulator">
+<link name="link_dummy">
+    <visual>
+        <origin xyz="-0.014790 0.274300 0.079552" rpy="-0.125191 0.448281 -1.594174" />
+        <geometry>
+            <box size="0.01 0.01 0.01" /> <!-- Use a small box for visualization -->
+        </geometry>
+        <material name="">
+            <color rgba="1 0 0 1" /> <!-- Red color for visibility -->
+        </material>
+    </visual>
+</link>
+
+<!-- Add a Joint to Connect the Dummy Link to the Base Link -->
+<joint name="joint_base_dummy" type="fixed">
+    <origin xyz="0 0 0.1" rpy="0.52 0.3 0" /> <!-- Adjust this position as necessary -->
+    <parent link="link_dummy" />
+    <child link="base_link" />
+</joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.11016 -0.089434 -0.00055978"
+        rpy="0 0 0" />
+      <mass
+        value="0.094595" />
+      <inertia
+        ixx="0.00013307"
+        ixy="-8.0888E-06"
+        ixz="-1.5527E-05"
+        iyy="0.00014557"
+        iyz="2.4764E-05"
+        izz="0.00019069" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.62745 0.62745 0.62745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_waist">
+    <inertial>
+      <origin
+        xyz="0.00749460466607962 0.0193833742805122 -0.00142908295604846"
+        rpy="0 0 0" />
+      <mass
+        value="0.073648017160832" />
+      <inertia
+        ixx="6.79533649959477E-05"
+        ixy="-6.43007186079431E-06"
+        ixz="2.54253113515054E-07"
+        iyy="6.01331618037357E-05"
+        iyz="6.73058268215776E-06"
+        izz="5.02824951550106E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_waist.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_waist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_base_waist"
+    type="continuous">
+    <origin
+      xyz="0.10462 -0.074718 0.031168"
+      rpy="1.2426 0.33656 1.1988" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_waist" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_arm01">
+    <inertial>
+      <origin
+        xyz="7.28828564999784E-08 0.0599999721913967 0.0132291412086"
+        rpy="0 0 0" />
+      <mass
+        value="0.064057051230774" />
+      <inertia
+        ixx="0.000103753554172636"
+        ixy="2.72460845129312E-10"
+        ixz="1.08923157262337E-10"
+        iyy="9.22848829918709E-06"
+        iyz="-7.47048066086611E-11"
+        izz="0.000108623418422058" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_arm01.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_arm01.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_waist_arm01"
+    type="revolute">
+    <origin
+      xyz="-0.0182 0.04028 -0.01391"
+      rpy="1.5708 1.4405 1.5708" />
+    <parent
+      link="link_waist" />
+    <child
+      link="link_arm01" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-.1"
+      upper=".1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_arm02">
+    <inertial>
+      <origin
+        xyz="0.00696065017005656 -3.16343195396473E-05 0.00571995513508529"
+        rpy="0 0 0" />
+      <mass
+        value="0.0470979731232057" />
+      <inertia
+        ixx="8.72264742991636E-06"
+        ixy="6.96797055522618E-08"
+        ixz="4.03695547935357E-07"
+        iyy="5.14011864804492E-05"
+        iyz="-1.86701892798509E-10"
+        izz="5.46647133889416E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_arm02.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_arm02.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_arm01_arm02"
+    type="revolute">
+    <origin
+      xyz="-0.0064428 0.15415 0.0222"
+      rpy="0 0 1.7573" />
+    <parent
+      link="link_arm01" />
+    <child
+      link="link_arm02" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-.1"
+      upper=".1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_arm03">
+    <inertial>
+      <origin
+        xyz="4.59621324966769E-05 0.0178079248857709 -0.00527093987895778"
+        rpy="0 0 0" />
+      <mass
+        value="0.0164703704574985" />
+      <inertia
+        ixx="3.8998112272154E-06"
+        ixy="1.15515572844753E-08"
+        ixz="-3.9843285770846E-09"
+        iyy="2.60896890580714E-06"
+        iyz="5.77154659865445E-07"
+        izz="5.00777358212754E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_arm03.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_arm03.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_arm02_arm03"
+    type="continuous">
+    <origin
+      xyz="0.0562 0.00092164 0.0079145"
+      rpy="0 -0.50397 -1.5708" />
+    <parent
+      link="link_arm02" />
+    <child
+      link="link_arm03" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_wrist">
+    <inertial>
+      <origin
+        xyz="-0.0118424048771172 -0.00255965818179493 -0.0155721370345793"
+        rpy="0 0 0" />
+      <mass
+        value="0.0160406157199611" />
+      <inertia
+        ixx="7.25768021095932E-06"
+        ixy="-4.04931922521688E-07"
+        ixz="-1.7859460511265E-06"
+        iyy="9.0081643034319E-06"
+        iyz="-1.34077517237122E-06"
+        izz="3.30098488813288E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_wrist.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_wrist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_arm03_wrist"
+    type="revolute">
+    <origin
+      xyz="-0.036654 0.047435 0.0015"
+      rpy="2.6591 -1.5708 -2.9275" />
+    <parent
+      link="link_arm03" />
+    <child
+      link="link_wrist" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-.1"
+      upper=".1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_servo">
+    <inertial>
+      <origin
+        xyz="-0.000421588407400978 2.77555756156289E-17 0.0125976635534302"
+        rpy="0 0 0" />
+      <mass
+        value="0.00717741212346476" />
+      <inertia
+        ixx="4.65659768608824E-07"
+        ixy="2.77932685817817E-22"
+        ixz="3.64468103975E-08"
+        iyy="7.15747199073412E-07"
+        iyz="-4.36751363427999E-22"
+        izz="4.29370258276757E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_servo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_servo.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_wrist_servo_fixed"
+    type="fixed">
+    <origin
+      xyz="0.007 -0.02375 -0.0025"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link_wrist" />
+    <child
+      link="link_servo" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_motor_gear">
+    <inertial>
+      <origin
+        xyz="0.00522763135404872 -0.00254163211906777 0.00274999999999997"
+        rpy="0 0 0" />
+      <mass
+        value="0.0025818082333029" />
+      <inertia
+        ixx="9.00151478960088E-08"
+        ixy="8.33723130309126E-09"
+        ixz="8.89942941530489E-22"
+        iyy="3.68688286362482E-07"
+        iyz="-2.11758236813575E-22"
+        izz="4.51818612303016E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_motor_gear.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_motor_gear.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_wrist_motor_gear"
+    type="revolute">
+    <origin
+      xyz="0 0.01 0"
+      rpy="1.5708 -0.7531 0" />
+    <parent
+      link="link_wrist" />
+    <child
+      link="link_motor_gear" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-.1"
+      upper=".1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_motor_finger">
+    <inertial>
+      <origin
+        xyz="0.0255261424966086 0.0022499970897259 -0.00336704858478218"
+        rpy="0 0 0" />
+      <mass
+        value="0.00255464599773171" />
+      <inertia
+        ixx="6.09414708673108E-08"
+        ixy="-2.13870657667333E-13"
+        ixz="1.5526788471596E-07"
+        iyy="8.10461051558438E-07"
+        iyz="1.87298236638026E-14"
+        izz="7.58141645116664E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_motor_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_motor_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_motor_gear_finger"
+    type="revolute">
+    <origin
+      xyz="0.030426 -0.0031233 0.0095"
+      rpy="-1.5708 0 1.2261" />
+    <parent
+      link="link_motor_gear" />
+    <child
+      link="link_motor_finger" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-.1"
+      upper=".1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_non_motor_gear">
+    <inertial>
+      <origin
+        xyz="0.0053917110914827 0.000565002451448526 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00265818035071167" />
+      <inertia
+        ixx="9.02347898780716E-08"
+        ixy="8.09769450575796E-09"
+        ixz="3.40798412371847E-22"
+        iyy="3.72028786461282E-07"
+        iyz="-3.68095372586097E-23"
+        izz="4.55175095404122E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_non_motor_gear.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_non_motor_gear.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_wrist_non_motor_gear"
+    type="revolute">
+    <origin
+      xyz="-0.025 0.00725 -0.0025"
+      rpy="1.5708 -0.8747 3.1416" />
+    <parent
+      link="link_wrist" />
+    <child
+      link="link_non_motor_gear" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-.1"
+      upper=".1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_non_motor_finger">
+    <inertial>
+      <origin
+        xyz="0.0255261444106173 0.00224999824611849 -0.0033670495028804"
+        rpy="0 0 0" />
+      <mass
+        value="0.00255464579631569" />
+      <inertia
+        ixx="6.0941341681675E-08"
+        ixy="-2.49807542755823E-13"
+        ixz="1.55267849729155E-07"
+        iyy="8.10460904924078E-07"
+        iyz="1.59058771746059E-15"
+        izz="7.58141627107247E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_non_motor_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_non_motor_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_non_motor_gear_finger"
+    type="revolute">
+    <origin
+      xyz="0.03075 0 -0.00225"
+      rpy="-1.5708 0 1.0751" />
+    <parent
+      link="link_non_motor_gear" />
+    <child
+      link="link_non_motor_finger" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-.1"
+      upper=".1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_motor_support">
+    <inertial>
+      <origin
+        xyz="0.0155 0.00200000000000006 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00079876241318469" />
+      <inertia
+        ixx="3.63250422363009E-09"
+        ixy="1.15057268914432E-22"
+        ixz="-9.43704834585034E-23"
+        iyy="1.04424225659603E-07"
+        iyz="-9.92616735063633E-24"
+        izz="1.02921754537799E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_motor_support.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_motor_support.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_wrist_motor_support"
+    type="revolute">
+    <origin
+      xyz="-0.007 0.00525 0.0175"
+      rpy="0 -0.75398 0" />
+    <parent
+      link="link_wrist" />
+    <child
+      link="link_motor_support" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-.1"
+      upper=".1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_non_motor_support">
+    <inertial>
+      <origin
+        xyz="0.0155 0.00200000000000006 2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000798762413184691" />
+      <inertia
+        ixx="3.6325042236301E-09"
+        ixy="1.19527598513912E-22"
+        ixz="-4.64125871824675E-23"
+        iyy="1.04424225659603E-07"
+        iyz="0"
+        izz="1.02921754537799E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_non_motor_support.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanipulator/meshes/link_non_motor_support.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_wrist_non_motor_support"
+    type="revolute">
+    <origin
+      xyz="-0.0365783595746249 0.00525000000000003 0.0415351375358365"
+      rpy="0 0.887232723469578 0" />
+    <parent
+      link="link_wrist" />
+    <child
+      link="link_non_motor_support" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-.1"
+      upper=".1"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

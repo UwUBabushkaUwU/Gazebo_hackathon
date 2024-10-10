@@ -35,6 +35,14 @@
 /home/chinarrm23/hackathon_ws/build/gtest/googletest/CMakeFiles/test.dir
 /home/chinarrm23/hackathon_ws/build/gtest/googletest/CMakeFiles/gtest_main.dir
 /home/chinarrm23/hackathon_ws/build/gtest/googletest/CMakeFiles/gtest.dir
+/home/chinarrm23/hackathon_ws/build/fanipulator/CMakeFiles/install/strip.dir
+/home/chinarrm23/hackathon_ws/build/fanipulator/CMakeFiles/install/local.dir
+/home/chinarrm23/hackathon_ws/build/fanipulator/CMakeFiles/install.dir
+/home/chinarrm23/hackathon_ws/build/fanipulator/CMakeFiles/list_install_components.dir
+/home/chinarrm23/hackathon_ws/build/fanipulator/CMakeFiles/rebuild_cache.dir
+/home/chinarrm23/hackathon_ws/build/fanipulator/CMakeFiles/edit_cache.dir
+/home/chinarrm23/hackathon_ws/build/fanipulator/CMakeFiles/test.dir
+/home/chinarrm23/hackathon_ws/build/fanipulator/CMakeFiles/_catkin_empty_exported_target.dir
 /home/chinarrm23/hackathon_ws/build/manipulator/CMakeFiles/install/strip.dir
 /home/chinarrm23/hackathon_ws/build/manipulator/CMakeFiles/install/local.dir
 /home/chinarrm23/hackathon_ws/build/manipulator/CMakeFiles/install.dir
@@ -42,4 +50,3 @@
 /home/chinarrm23/hackathon_ws/build/manipulator/CMakeFiles/rebuild_cache.dir
 /home/chinarrm23/hackathon_ws/build/manipulator/CMakeFiles/edit_cache.dir
 /home/chinarrm23/hackathon_ws/build/manipulator/CMakeFiles/test.dir
-/home/chinarrm23/hackathon_ws/build/manipulator/CMakeFiles/_catkin_empty_exported_target.dir

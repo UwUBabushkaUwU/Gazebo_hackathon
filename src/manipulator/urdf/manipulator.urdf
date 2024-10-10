@@ -4,6 +4,25 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="manipulator">
+  <!-- Define the Dummy Link -->
+<link name="link_dummy">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <box size="0.01 0.01 0.01" /> <!-- Use a small box for visualization -->
+        </geometry>
+        <material name="">
+            <color rgba="1 0 0 1" /> <!-- Red color for visibility -->
+        </material>
+    </visual>
+</link>
+
+<!-- Add a Joint to Connect the Dummy Link to the Base Link -->
+<joint name="joint_base_dummy" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" /> <!-- Adjust this position as necessary -->
+    <parent link="base_link" />
+    <child link="link_dummy" />
+</joint>
   <link
     name="base_link">
     <inertial>
