@@ -4,10 +4,9 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="manipulator">
-  <!-- Define the Dummy Link -->
-<link name="link_dummy">
+  <link name="link_dummy">
     <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="-0.014790 0.274300 0.079552" rpy="-0.125191 0.448281 -1.594174" />
         <geometry>
             <box size="0.01 0.01 0.01" /> <!-- Use a small box for visualization -->
         </geometry>
@@ -19,15 +18,15 @@
 
 <!-- Add a Joint to Connect the Dummy Link to the Base Link -->
 <joint name="joint_base_dummy" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0" /> <!-- Adjust this position as necessary -->
-    <parent link="base_link" />
-    <child link="link_dummy" />
+    <origin xyz="0 0 0.1" rpy="0.52 0.3 0" /> <!-- Adjust this position as necessary -->
+    <parent link="link_dummy" />
+    <child link="base_link" />
 </joint>
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0.110164377946591 -0.0894344248139039 -0.000559782561365218"
+        xyz="0.110164377946591 -0.0894344248139039 -0.000559782561365217"
         rpy="0 0 0" />
       <mass
         value="0.0945948697764257" />
@@ -67,17 +66,17 @@
     name="link_waist">
     <inertial>
       <origin
-        xyz="0.00749462200181671 -0.00280637127097094 -0.00142932969864078"
+        xyz="0.00749460466607962 0.0193833742805122 -0.00142908295604847"
         rpy="0 0 0" />
       <mass
-        value="0.0736482065125356" />
+        value="0.073648017160832" />
       <inertia
-        ixx="6.7954856684254E-05"
-        ixy="-6.43019711406122E-06"
-        ixz="2.545337426457E-07"
-        iyy="6.0133991441919E-05"
-        iyz="6.73122742415124E-06"
-        izz="5.02832256418592E-05" />
+        ixx="6.79533649959477E-05"
+        ixy="-6.43007186079431E-06"
+        ixz="2.54253113515054E-07"
+        iyy="6.01331618037357E-05"
+        iyz="6.73058268215776E-06"
+        izz="5.02824951550106E-05" />
     </inertial>
     <visual>
       <origin
@@ -107,30 +106,35 @@
     name="joint_base_waist"
     type="continuous">
     <origin
-      xyz="0.100478709174496 -0.0656562967351186 0.0509945925861506"
-      rpy="1.86216248284797 -0.368573868525035 -1.83635830754677" />
+      xyz="0.104619716257001 -0.0747184271679116 0.0311676085902517"
+      rpy="1.24263440323189 0.336564980145166 1.19877807114456" />
     <parent
       link="base_link" />
     <child
       link="link_waist" />
     <axis
       xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="link_arm01">
     <inertial>
       <origin
-        xyz="0.00129272906852571 0.0599847631903156 -0.00497131817580272"
+        xyz="7.28828564999784E-08 0.0599999721913967 0.0132291412086"
         rpy="0 0 0" />
       <mass
-        value="0.0640544606432968" />
+        value="0.064057051230774" />
       <inertia
-        ixx="0.000103706799533015"
-        ixy="-2.03571258744201E-06"
-        ixz="-2.46586877518744E-11"
-        iyy="9.2726763879552E-06"
-        iyz="4.56160416121703E-10"
-        izz="0.000108619449047465" />
+        ixx="0.000103753554172636"
+        ixy="2.72460845131853E-10"
+        ixz="1.08923157262337E-10"
+        iyy="9.2284882991871E-06"
+        iyz="-7.47048066025201E-11"
+        izz="0.000108623418422058" />
     </inertial>
     <visual>
       <origin
@@ -158,32 +162,37 @@
   </link>
   <joint
     name="joint_waist_arm01"
-    type="continuous">
+    type="revolute">
     <origin
-      xyz="0 0.018090375352197 -0.0139100000000071"
-      rpy="1.5707963267946 1.10898105062242 1.57079632679463" />
+      xyz="-0.0182 0.0402799999999999 -0.0139099999999999"
+      rpy="1.57079632679491 1.44053245288332 1.57079632679491" />
     <parent
       link="link_waist" />
     <child
       link="link_arm01" />
     <axis
       xyz="0 0 1" />
+    <limit
+      lower="-1.4"
+      upper="1.4"
+      effort="338"
+      velocity="10" />
   </joint>
   <link
     name="link_arm02">
     <inertial>
       <origin
-        xyz="0.0427311796584287 -0.00240751880131511 0.00971993709487167"
+        xyz="-0.000507747225750504 0.0417075716278682 -0.0129199551350853"
         rpy="0 0 0" />
       <mass
-        value="0.0470979601767716" />
+        value="0.0470979731232057" />
       <inertia
-        ixx="8.72266112071269E-06"
-        ixy="6.96875924353953E-08"
-        ixz="4.03568961614107E-07"
-        iyy="5.14006986895581E-05"
-        iyz="-1.82397415895724E-10"
-        izz="5.46642509743615E-05" />
+        ixx="5.13940350110077E-05"
+        ixy="5.56792946865546E-07"
+        ixz="4.79475725568015E-09"
+        iyy="8.72979889935788E-06"
+        iyz="-4.03667116053884E-07"
+        izz="5.46647133889416E-05" />
     </inertial>
     <visual>
       <origin
@@ -211,32 +220,37 @@
   </link>
   <joint
     name="joint_arm01_arm02"
-    type="continuous">
+    type="revolute">
     <origin
-      xyz="0 0.120000000000003 0"
-      rpy="0 0 1.1544064242663" />
+      xyz="0 0.12 0.015"
+      rpy="3.14159265358979 0 -2.94369460393837" />
     <parent
       link="link_arm01" />
     <child
       link="link_arm02" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.4"
+      upper="1.4"
+      effort="338"
+      velocity="10" />
   </joint>
   <link
     name="link_arm03">
     <inertial>
       <origin
-        xyz="0.00638326841687217 0.00660943464186645 -0.0068996816068671"
+        xyz="4.59621324966769E-05 0.0178079248857709 -0.00527093987895778"
         rpy="0 0 0" />
       <mass
-        value="0.0164704027054544" />
+        value="0.0164703704574985" />
       <inertia
-        ixx="3.91574170614055E-06"
-        ixy="-5.56474545952712E-08"
-        ixz="-1.31895382131963E-07"
-        iyy="2.60897723184576E-06"
-        iyz="5.74580421631354E-07"
-        izz="4.99187852065969E-06" />
+        ixx="3.8998112272154E-06"
+        ixy="1.15515572844753E-08"
+        ixz="-3.9843285770846E-09"
+        iyy="2.60896890580714E-06"
+        iyz="5.77154659865444E-07"
+        izz="5.00777358212754E-06" />
     </inertial>
     <visual>
       <origin
@@ -266,30 +280,35 @@
     name="joint_arm02_arm03"
     type="continuous">
     <origin
-      xyz="0.103168801289468 0.00530000000121461 0.00949999999992188"
-      rpy="0 -1.24589601241689 -1.57079632682694" />
+      xyz="-0.0001165850778517 0.090954594899946 -0.0151145368982072"
+      rpy="3.14159265358979 0.503971856291605 -3.13017769589601" />
     <parent
       link="link_arm02" />
     <child
       link="link_arm03" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.4"
+      upper="1.4"
+      effort="338"
+      velocity="10" />
   </joint>
   <link
-    name="link_gripper_wrist">
+    name="link_wrist">
     <inertial>
       <origin
-        xyz="-0.0142109632990201 0.0156055264158059 0.0216496658055875"
+        xyz="0.0241387897424202 -0.00895517640972743 0.00515759512288279"
         rpy="0 0 0" />
       <mass
-        value="0.0160406410244945" />
+        value="0.0160406157199611" />
       <inertia
-        ixx="7.56234515895802E-06"
-        ixy="-1.80514351076937E-07"
-        ixz="-1.40597452139778E-06"
-        iyy="9.04534964188705E-06"
-        iyz="-1.27228630302088E-06"
-        izz="2.9591422289527E-06" />
+        ixx="3.6333607086399E-06"
+        ixy="1.89318060885119E-06"
+        ixz="-1.73518802637373E-06"
+        iyy="8.67578848292488E-06"
+        iyz="5.85402145999365E-07"
+        izz="7.25768021095932E-06" />
     </inertial>
     <visual>
       <origin
@@ -297,7 +316,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_gripper_wrist.STL" />
+          filename="package://manipulator/meshes/link_wrist.STL" />
       </geometry>
       <material
         name="">
@@ -311,38 +330,43 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_gripper_wrist.STL" />
+          filename="package://manipulator/meshes/link_wrist.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="joint_arm03_gripper"
-    type="continuous">
+    name="joint_arm03_wrist"
+    type="revolute">
     <origin
-      xyz="0 0.01 0"
-      rpy="3.09077521367807 -1.57079631189374 2.73120362922848" />
+      xyz="0 0.028 -0.0155"
+      rpy="0 0 2.97515466965945" />
     <parent
       link="link_arm03" />
     <child
-      link="link_gripper_wrist" />
+      link="link_wrist" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.4"
+      upper="1.4"
+      effort="338"
+      velocity="10" />
   </joint>
   <link
-    name="link_gear_motor">
+    name="link_servo">
     <inertial>
       <origin
-        xyz="0.04463261905914 -0.00814483018706101 -0.018176468029334"
+        xyz="-0.000421588407400978 2.77555756156289E-17 0.0125976635534302"
         rpy="0 0 0" />
       <mass
-        value="0.00258180823330291" />
+        value="0.00717741212346476" />
       <inertia
-        ixx="9.00151478960092E-08"
-        ixy="8.33723130309093E-09"
-        ixz="-9.0638315620498E-22"
-        iyy="3.68688286362483E-07"
-        iyz="5.10784028251495E-23"
-        izz="4.51818612303018E-07" />
+        ixx="4.65659768608823E-07"
+        ixy="3.4410713482206E-22"
+        ixz="3.64468103975E-08"
+        iyy="7.15747199073412E-07"
+        iyz="-4.2351647362715E-22"
+        izz="4.29370258276757E-07" />
     </inertial>
     <visual>
       <origin
@@ -350,7 +374,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_gear_motor.STL" />
+          filename="package://manipulator/meshes/link_servo.STL" />
       </geometry>
       <material
         name="">
@@ -364,38 +388,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_gear_motor.STL" />
+          filename="package://manipulator/meshes/link_servo.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="joint_wrist_gear_motor"
-    type="continuous">
+    name="joint_wrist_servo_fixed"
+    type="fixed">
     <origin
-      xyz="-0.0151308298057989 0.00740230118402704 -0.00190478098708853"
-      rpy="1.62193314321017 -1.46493424551406 -0.102365080176138" />
+      xyz="0.0393088925164345 0.010787653550768 0.024"
+      rpy="1.67321358298702 -1.5707963267949 0" />
     <parent
-      link="link_gripper_wrist" />
+      link="link_wrist" />
     <child
-      link="link_gear_motor" />
+      link="link_servo" />
     <axis
-      xyz="0.208554590258567 -0.978010727385994 0" />
+      xyz="0 0 0" />
   </joint>
   <link
-    name="link_finger_motor">
+    name="link_motor_gear">
     <inertial>
       <origin
-        xyz="0.0784813054779672 0.0117499986657535 -0.0525413794587481"
+        xyz="0.00498745739687451 0.00250589540319929 -1.66533453693773E-16"
         rpy="0 0 0" />
       <mass
-        value="0.00255464559787999" />
+        value="0.0025818082333029" />
       <inertia
-        ixx="6.09412019691677E-08"
-        ixy="-2.62800540051186E-13"
-        ixz="1.55267808871726E-07"
-        iyy="8.10460658621149E-07"
-        iyz="-5.24793927349687E-15"
-        izz="7.58141519921509E-07" />
+        ixx="1.19303857754038E-07"
+        ixy="-8.58700040667533E-08"
+        ixz="4.32615460365233E-22"
+        iyy="3.39399576504453E-07"
+        iyz="2.11758236813575E-22"
+        izz="4.51818612303017E-07" />
     </inertial>
     <visual>
       <origin
@@ -403,7 +427,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_finger_motor.STL" />
+          filename="package://manipulator/meshes/link_motor_gear.STL" />
       </geometry>
       <material
         name="">
@@ -417,38 +441,43 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_finger_motor.STL" />
+          filename="package://manipulator/meshes/link_motor_gear.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="joint_gear_motor_finger"
-    type="continuous">
+    name="joint_wrist_motor_gear"
+    type="revolute">
     <origin
-      xyz="-0.00180406326351987 0.000798239901647332 -0.00192646802933377"
-      rpy="-1.5707963267949 0 0.616208531093524" />
+      xyz="0.0361395051353438 -0.0200499044528838 0.0189000000000357"
+      rpy="-1.5707963267949 -0.852106499830379 -0.102417256192125" />
     <parent
-      link="link_gear_motor" />
+      link="link_wrist" />
     <child
-      link="link_finger_motor" />
+      link="link_motor_gear" />
     <axis
-      xyz="0.39504029447576 0 0.918663793637533" />
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.09"
+      upper="0.0275"
+      effort="338"
+      velocity="10" />
   </joint>
   <link
-    name="link_support_motor">
+    name="link_motor_finger">
     <inertial>
       <origin
-        xyz="0.0722080886563065 0.0181507111127688 0.0049394584617492"
+        xyz="0.0110070406755422 -0.0232758678124116 -0.00250000291050845"
         rpy="0 0 0" />
       <mass
-        value="0.000798762413184691" />
+        value="0.00255464599773235" />
       <inertia
-        ixx="3.6325042236301E-09"
-        ixy="4.24834792728407E-23"
-        ixz="-7.51700381657564E-23"
-        iyy="1.04424225659603E-07"
-        iyz="-1.03397576569128E-25"
-        izz="1.02921754537799E-07" />
+        ixx="6.02661453666928E-07"
+        ixy="3.29142587048583E-07"
+        ixz="-8.31957162243927E-14"
+        iyy="2.16421662192353E-07"
+        iyz="1.97906599030425E-13"
+        izz="8.10461051433769E-07" />
     </inertial>
     <visual>
       <origin
@@ -456,7 +485,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_support_motor.STL" />
+          filename="package://manipulator/meshes/link_motor_finger.STL" />
       </geometry>
       <material
         name="">
@@ -470,38 +499,44 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_support_motor.STL" />
+          filename="package://manipulator/meshes/link_motor_finger.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="joint_gear_motor_support"
+    name="joint_motor_gear_finger"
     type="continuous">
     <origin
-      xyz="5.25790110262811E-05 -0.000496779214404539 -2.57569164497928E-05"
-      rpy="-1.5707963267949 0 -0.00518044088048919" />
+      xyz="0.028766 0.010867 0.002"
+      rpy="3.1416 0 0" />
     <parent
-      link="link_gear_motor" />
+      link="link_motor_gear" />
     <child
-      link="link_support_motor" />
+      link="link_motor_finger" />
     <axis
-      xyz="0.213618295870458 0 -0.976917204101454" />
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.4"
+      upper="1.4"
+      effort="338"
+      velocity="10" />
+	<mimic joint="joint_wrist_motor_gear" multiplier="-0.8"/>
   </joint>
   <link
-    name="link_gear_non_motor">
+    name="link_non_motor_gear">
     <inertial>
       <origin
-        xyz="0.0443460144739399 -0.00850842807968651 0.0162499999999518"
+        xyz="0.00492502906299691 0.00226580338795912 -5.55111512312578E-17"
         rpy="0 0 0" />
       <mass
-        value="0.00265818035071166" />
+        value="0.00265818035071168" />
       <inertia
-        ixx="9.02347898780712E-08"
-        ixy="8.09769450575749E-09"
-        ixz="-8.35452418678558E-23"
-        iyy="3.7202878646128E-07"
-        iyz="-8.63369764352223E-23"
-        izz="4.5517509540412E-07" />
+        ixx="1.14346304850681E-07"
+        ixy="-7.92381705356815E-08"
+        ixz="8.33798057453452E-22"
+        iyy="3.47917271488674E-07"
+        iyz="1.43102245971674E-22"
+        izz="4.55175095404124E-07" />
     </inertial>
     <visual>
       <origin
@@ -509,7 +544,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_gear_non_motor.STL" />
+          filename="package://manipulator/meshes/link_non_motor_gear.STL" />
       </geometry>
       <material
         name="">
@@ -523,38 +558,44 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_gear_non_motor.STL" />
+          filename="package://manipulator/meshes/link_non_motor_gear.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="joint_wrist_gear_non_motor"
-    type="continuous">
+    name="joint_wrist_non_motor_gear"
+    type="revolute">
     <origin
-      xyz="-0.0126144790147938 0.00920887596041156 -0.00324751562511042"
-      rpy="1.54262490601649 -1.37785740063633 3.11772758003403" />
+      xyz="0.0361395051353807 -0.0200499044528875 -0.00800000000000281"
+      rpy="1.5707963267949 0.696091483245096 -0.102417256192129" />
     <parent
-      link="link_gripper_wrist" />
+      link="link_wrist" />
     <child
-      link="link_gear_non_motor" />
+      link="link_non_motor_gear" />
     <axis
-      xyz="0.0883767144837315 -0.996087122864793 0" />
+      xyz="0 0 1" />
+    <limit
+      lower="-1.4"
+      upper="1.4"
+      effort="338"
+      velocity="10" />
+<mimic joint="joint_wrist_motor_gear" multiplier="-1.0"/>
   </joint>
   <link
-    name="link_finger_non_motor">
+    name="link_non_motor_finger">
     <inertial>
       <origin
-        xyz="0.0777112087653918 -0.0117500038825281 -0.0541256028723106"
+        xyz="0.0212959212969732 0.0144708261452938 0.00649999825189373"
         rpy="0 0 0" />
       <mass
-        value="0.00255464600150248" />
+        value="0.00255464579636163" />
       <inertia
-        ixx="6.09413937448075E-08"
-        ixy="-1.84322826805609E-13"
-        ixz="1.55267857454146E-07"
-        iyy="8.10460608174776E-07"
-        iyz="3.07285306193079E-14"
-        izz="7.58141278556825E-07" />
+        ixx="3.26118952390743E-07"
+        ixy="-3.72385346632874E-07"
+        ixz="-2.22677707980307E-13"
+        iyy="4.92964020378245E-07"
+        iyz="-1.13606576757357E-13"
+        izz="8.10460908906223E-07" />
     </inertial>
     <visual>
       <origin
@@ -562,7 +603,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_finger_non_motor.STL" />
+          filename="package://manipulator/meshes/link_non_motor_finger.STL" />
       </geometry>
       <material
         name="">
@@ -576,38 +617,44 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_finger_non_motor.STL" />
+          filename="package://manipulator/meshes/link_non_motor_finger.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="joint_gear_non_motor_finger"
-    type="continuous">
+    name="joint_non_motor_gear_finger"
+    type="revolute">
     <origin
-      xyz="-0.000131735077104032 0.0114847758791033 0"
-      rpy="-1.5707963267949 0 0.485250499592955" />
+      xyz="0.029123 0.0098705 0.002"
+      rpy="-3.1416 0 1.5482" />
     <parent
-      link="link_gear_non_motor" />
+      link="link_non_motor_gear" />
     <child
-      link="link_finger_non_motor" />
+      link="link_non_motor_finger" />
     <axis
-      xyz="0.386430530565165 0 0.92231851604916" />
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.4"
+      upper="1.4"
+      effort="338"
+      velocity="10" />
+<mimic joint="joint_wrist_motor_gear" multiplier="-0.8"/>
   </joint>
   <link
-    name="link_support_non_motor">
+    name="link_motor_support">
     <inertial>
       <origin
-        xyz="-0.0720036700548316 0.018150711112734 0.00133115482133332"
+        xyz="0.0146933813542968 0.002 0.0049350323582818"
         rpy="0 0 0" />
       <mass
-        value="0.000798762413184689" />
+        value="0.000798762413184692" />
       <inertia
-        ixx="3.63250422363008E-09"
-        ixy="-1.21207809133161E-22"
-        ixz="1.2187989338086E-23"
-        iyy="1.04424225659603E-07"
-        iyz="1.72221588472955E-24"
-        izz="1.02921754537799E-07" />
+        ixx="1.36976216135713E-08"
+        ixy="7.70828933322853E-23"
+        ixz="-2.99675052665061E-08"
+        iyy="1.04424225659604E-07"
+        iyz="2.31610571514848E-23"
+        izz="9.28566371478583E-08" />
     </inertial>
     <visual>
       <origin
@@ -615,7 +662,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_support_non_motor.STL" />
+          filename="package://manipulator/meshes/link_motor_support.STL" />
       </geometry>
       <material
         name="">
@@ -629,21 +676,86 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://manipulator/meshes/link_support_non_motor.STL" />
+          filename="package://manipulator/meshes/link_motor_support.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="joint_gear_non_motor_support"
-    type="continuous">
+    name="joint_wrist_motor_support"
+    type="revolute">
     <origin
-      xyz="0.00169602614000509 -0.0016254951164789 -0.00190071111288237"
-      rpy="1.57079632679491 0 -3.12464901226904" />
+      xyz="0.0562391804526159 -0.0201051506339748 0.0100000000000436"
+      rpy="-3.14159265358979 -0.81681166488745 -0.102417256192128" />
     <parent
-      link="link_gear_non_motor" />
+      link="link_wrist" />
     <child
-      link="link_support_non_motor" />
+      link="link_motor_support" />
     <axis
-      xyz="0.0714874934825342 0 0.99744149616686" />
+      xyz="0 1 0" />
+    <limit
+      lower="-1.4"
+      upper="1.4"
+      effort="338"
+      velocity="10" />
+<mimic joint="joint_wrist_motor_gear" multiplier="1.2"/>
+  </joint>
+  <link
+    name="link_non_motor_support">
+    <inertial>
+      <origin
+        xyz="0.00549698307306112 0.0144925214194936 0.00199999999999989"
+        rpy="0 0 0" />
+      <mass
+        value="0.000798762413184692" />
+      <inertia
+        ixx="9.04339056588605E-08"
+        ixy="-3.29235900776828E-08"
+        ixz="3.82571033305775E-24"
+        iyy="1.61203531025693E-08"
+        iyz="2.8951321439356E-23"
+        izz="1.04424225659604E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://manipulator/meshes/link_non_motor_support.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://manipulator/meshes/link_non_motor_support.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_wrist_non_motor_support"
+    type="revolute">
+    <origin
+      xyz="0.0558302272421884 -0.0240841903763851 0"
+      rpy="-1.5707963267949 -0.852106499830378 -0.102417256192126" />
+    <parent
+      link="link_wrist" />
+    <child
+      link="link_non_motor_support" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.4"
+      upper="1.4"
+      effort="338"
+      velocity="10" />
+<mimic joint="joint_wrist_motor_gear" multiplier="-1.2"/>
   </joint>
 </robot>

@@ -174,8 +174,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-.1.57"
-      upper=".1.57"
+      lower="-1.57"
+      upper="1.57"
       effort="0"
       velocity="0" />
   </joint>
@@ -183,7 +183,7 @@
     name="link_arm02">
     <inertial>
       <origin
-        xyz="0.00696065017005656 -3.16343195396473E-05 0.00571995513508529"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.0470979731232057" />
@@ -223,7 +223,7 @@
     name="joint_arm01_arm02"
     type="revolute">
     <origin
-      xyz="-0.0064428 0.15415 0.0222"
+      xyz="-0.00 0.12 0.0222"
       rpy="0 0 1.7573" />
     <parent
       link="link_arm01" />
@@ -232,8 +232,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-.1.57"
-      upper=".1.57"
+      lower="-1.57"
+      upper="1.57"
       effort="0"
       velocity="0" />
   </joint>
@@ -348,8 +348,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      lower="-.1.57"
-      upper=".1.57"
+      lower="-1.57"
+      upper="1.57"
       effort="0"
       velocity="0" />
   </joint>
@@ -459,8 +459,8 @@
     <axis
       xyz="0 0 -1" />
     <limit
-      lower="-.1.57"
-      upper=".1.57"
+      lower="-1.57"
+      upper="1.57"
       effort="0"
       velocity="0" />
   </joint>
@@ -517,8 +517,8 @@
     <axis
       xyz="0 -1 0" />
     <limit
-      lower="-.1.57"
-      upper=".1.57"
+      lower="-1.57"
+      upper="1.57"
       effort="0"
       velocity="0" />
     <mimic joint="joint_wrist_motor_gear" multiplier="-1.0"/>
@@ -576,8 +576,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-.1.57"
-      upper=".1.57"
+      lower="-1.57"
+      upper="1.57"
       effort="0"
       velocity="0" />
     <mimic joint="joint_wrist_motor_gear" multiplier="-1.0"/>
@@ -635,8 +635,8 @@
     <axis
       xyz="0 -1 0" />
     <limit
-      lower="-.1.57"
-      upper=".1.57"
+      lower="-1.57"
+      upper="1.57"
       effort="0"
       velocity="0" />
     <mimic joint="joint_wrist_motor_gear" multiplier="-1.0"/>
@@ -694,8 +694,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-.1.57"
-      upper=".1.57"
+      lower="-1.57"
+      upper="1.57"
       effort="0"
       velocity="0" />
     <mimic joint="joint_wrist_motor_gear" multiplier="1.0"/>
@@ -753,8 +753,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-.1.57"
-      upper=".1.57"
+      lower="-1.57"
+      upper="1.57"
       effort="0"
       velocity="0" />
       <mimic joint="joint_wrist_motor_gear" multiplier="-1.0"/>
