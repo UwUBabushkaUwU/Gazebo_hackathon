@@ -4,7 +4,7 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="manipulator">
-  <link name="link_dummy">
+  <link name="world">
     <visual>
         <origin xyz="-0.014790 0.274300 0.079552" rpy="-0.125191 0.448281 -1.594174" />
         <geometry>
@@ -17,9 +17,9 @@
 </link>
 
 <!-- Add a Joint to Connect the Dummy Link to the Base Link -->
-<joint name="joint_base_dummy" type="fixed">
+<joint name="joint_world_base_link" type="fixed">
     <origin xyz="0 0 0.1" rpy="0.52 0.3 0" /> <!-- Adjust this position as necessary -->
-    <parent link="link_dummy" />
+    <parent link="world" />
     <child link="base_link" />
 </joint>
   <link
@@ -117,8 +117,9 @@
     <limit
       lower="0"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="338"
+      velocity="10" />
+        
   </joint>
   <link
     name="link_arm01">
@@ -177,6 +178,7 @@
       upper="1.4"
       effort="338"
       velocity="10" />
+    <!-- <dynamics damping="0.2" friction="0.6"/> -->
   </joint>
   <link
     name="link_arm02">
@@ -518,7 +520,7 @@
     <limit
       lower="-1.4"
       upper="1.4"
-      effort="338"
+      effort="0"
       velocity="10" />
 	<mimic joint="joint_wrist_motor_gear" multiplier="-0.8"/>
   </joint>
@@ -577,7 +579,7 @@
     <limit
       lower="-1.4"
       upper="1.4"
-      effort="338"
+      effort="0"
       velocity="10" />
 <mimic joint="joint_wrist_motor_gear" multiplier="-1.0"/>
   </joint>
@@ -636,7 +638,7 @@
     <limit
       lower="-1.4"
       upper="1.4"
-      effort="338"
+      effort="0"
       velocity="10" />
 <mimic joint="joint_wrist_motor_gear" multiplier="-0.8"/>
   </joint>
@@ -695,7 +697,7 @@
     <limit
       lower="-1.4"
       upper="1.4"
-      effort="338"
+      effort="0"
       velocity="10" />
 <mimic joint="joint_wrist_motor_gear" multiplier="1.2"/>
   </joint>
@@ -754,8 +756,132 @@
     <limit
       lower="-1.4"
       upper="1.4"
-      effort="338"
+      effort="0"
       velocity="10" />
 <mimic joint="joint_wrist_motor_gear" multiplier="-1.2"/>
   </joint>
+
+
+<!--Transmissions-->
+
+<transmission name="trans_joint_base_waist">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_base_waist">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_base_waist">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="trans_joint_waist_arm01">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_waist_arm01">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_waist_arm01">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="trans_joint_arm01_arm02">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_arm01_arm02">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_arm01_arm02">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="trans_joint_arm02_arm03">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_arm02_arm03">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_arm02_arm03">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="trans_joint_arm03_wrist">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_arm03_wrist">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_arm03_wrist">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="trans_joint_wrist_motor_gear">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_wrist_motor_gear">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_wrist_motor_gear">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+<!--End of transmissions-->
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/</robotNamespace>
+  </plugin>
+</gazebo>
+<gazebo reference="base_link">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_waist">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_arm01">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_arm02">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_arm03">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_wrist">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_servo">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_motor_gear">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_motor_finger">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_non_motor_gear">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_non_motor_finger">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_motor_support">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_non_motor_support">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+
+
 </robot>
