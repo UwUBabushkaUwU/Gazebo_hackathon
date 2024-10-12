@@ -15,7 +15,7 @@
   <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link base_footprint 40" />
 
   <!--spawn model-->
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-x $(arg arg_x) -y $(arg arg_y) -z $(arg arg_z) -Y $(arg arg_Y) -param robot_description -urdf -model manipulator -J joint_base_waist 0.0 -J joint_waist_arm01 0.0 -J joint_arm01_arm02 0.0 -J joint_arm02_arm03 0.0 -J joint_arm03_wrist 0.0 -J joint_wrist_motor_gear 0.0" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-x $(arg arg_x) -y $(arg arg_y) -z $(arg arg_z) -Y $(arg arg_Y) -param robot_description -urdf -model manipulator -J joint_base_waist 0.0 -J joint_waist_arm01 0.0 -J joint_arm01_arm02 0.0 -J joint_arm02_arm03 0.0 -J joint_arm03_wrist 0.0 -J joint_wrist_motor_gear 0.0 -J joint_wrist_non_motor_gear 0.0 -J joint_motor_gear_finger 0.0 -J joint_non_motor_gear_finger 0.0 -J joint_wrist_motor_support 0.0 -J joint_wrist_non_motor_support 0.0" />
 
   <!--Load and launch the joint trajectory controller-->
   <rosparam file ="$(find manipulator)/config/joint_trajectory_controller.yaml" command="load"/>

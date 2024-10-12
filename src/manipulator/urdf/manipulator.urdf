@@ -763,66 +763,115 @@
 
 
 <!--Transmissions-->
-
 <transmission name="trans_joint_base_waist">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="joint_base_waist">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="actuator_joint_base_waist">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
 </transmission>
 
 <transmission name="trans_joint_waist_arm01">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="joint_waist_arm01">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="actuator_joint_waist_arm01">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
 </transmission>
 
 <transmission name="trans_joint_arm01_arm02">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="joint_arm01_arm02">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="actuator_joint_arm01_arm02">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
 </transmission>
 
 <transmission name="trans_joint_arm02_arm03">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="joint_arm02_arm03">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="actuator_joint_arm02_arm03">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
 </transmission>
 
 <transmission name="trans_joint_arm03_wrist">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="joint_arm03_wrist">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="actuator_joint_arm03_wrist">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
 </transmission>
 
 <transmission name="trans_joint_wrist_motor_gear">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="joint_wrist_motor_gear">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="actuator_joint_wrist_motor_gear">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
 </transmission>
+<transmission name="trans_joint_wrist_non_motor_gear">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_wrist_non_motor_gear">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_wrist_non_motor_gear">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="trans_joint_motor_gear_finger">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_motor_gear_finger">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_motor_gear_finger">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="trans_joint_non_motor_gear_finger">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_non_motor_gear_finger">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_non_motor_gear_finger">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="trans_joint_wrist_motor_support">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_wrist_motor_support">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_wrist_motor_support">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
+<transmission name="trans_joint_wrist_non_motor_support">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_wrist_non_motor_support">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="actuator_joint_wrist_non_motor_support">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </actuator>
+</transmission>
+
 <!--End of transmissions-->
 
 <gazebo>
