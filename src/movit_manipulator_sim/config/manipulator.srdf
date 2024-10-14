@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="manipulator">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="arm_group">
+        <joint name="joint_waist_arm01"/>
+        <joint name="joint_arm01_arm02"/>
+        <joint name="joint_arm02_arm03"/>
+        <joint name="joint_arm03_wrist"/>
+        <joint name="joint_base_waist"/>
+    </group>
+    <group name="hand">
+        <joint name="joint_wrist_motor_gear"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="hand_closed" group="hand">
+        <joint name="joint_wrist_motor_gear" value="-0.0851"/>
+    </group_state>
+    <group_state name="hand_open" group="hand">
+        <joint name="joint_wrist_motor_gear" value="0.0275"/>
+    </group_state>
+    <group_state name="zero_pose" group="arm_group">
+        <joint name="joint_arm01_arm02" value="0"/>
+        <joint name="joint_arm02_arm03" value="-0.003"/>
+        <joint name="joint_arm03_wrist" value="0"/>
+        <joint name="joint_base_waist" value="0"/>
+        <joint name="joint_waist_arm01" value="0"/>
+    </group_state>
+    <group_state name="pick_object_pose" group="arm_group">
+        <joint name="joint_arm01_arm02" value="1.1252"/>
+        <joint name="joint_arm02_arm03" value="-0.4404"/>
+        <joint name="joint_arm03_wrist" value="0.0916"/>
+        <joint name="joint_base_waist" value="-0.2642"/>
+        <joint name="joint_waist_arm01" value="0.615"/>
+    </group_state>
+    <group_state name="lift_object_pose" group="arm_group">
+        <joint name="joint_arm01_arm02" value="1.1252"/>
+        <joint name="joint_arm02_arm03" value="-0.4404"/>
+        <joint name="joint_arm03_wrist" value="0.0916"/>
+        <joint name="joint_base_waist" value="-0.2642"/>
+        <joint name="joint_waist_arm01" value="-0.1963"/>
+    </group_state>
+    <group_state name="opposite_pose" group="arm_group">
+        <joint name="joint_arm01_arm02" value="1.1252"/>
+        <joint name="joint_arm02_arm03" value="-0.4404"/>
+        <joint name="joint_arm03_wrist" value="0.0916"/>
+        <joint name="joint_base_waist" value="2.3488"/>
+        <joint name="joint_waist_arm01" value="-0.1963"/>
+    </group_state>
+    <group_state name="place_object_pose" group="arm_group">
+        <joint name="joint_arm01_arm02" value="1.1252"/>
+        <joint name="joint_arm02_arm03" value="-0.4404"/>
+        <joint name="joint_arm03_wrist" value="0.0916"/>
+        <joint name="joint_base_waist" value="2.3488"/>
+        <joint name="joint_waist_arm01" value="0.6019"/>
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="hand_ee" parent_link="link_wrist" group="hand"/>
+    <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
+    <passive_joint name="joint_motor_gear_finger"/>
+    <passive_joint name="joint_wrist_motor_support"/>
+    <passive_joint name="joint_wrist_non_motor_gear"/>
+    <passive_joint name="joint_non_motor_gear_finger"/>
+    <passive_joint name="joint_wrist_non_motor_support"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="link_arm01" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_arm02" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_arm03" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_servo" reason="Never"/>
+    <disable_collisions link1="base_link" link2="link_waist" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="link_wrist" reason="Never"/>
+    <disable_collisions link1="link_arm01" link2="link_arm02" reason="Adjacent"/>
+    <disable_collisions link1="link_arm01" link2="link_arm03" reason="Never"/>
+    <disable_collisions link1="link_arm01" link2="link_motor_gear" reason="Never"/>
+    <disable_collisions link1="link_arm01" link2="link_motor_support" reason="Never"/>
+    <disable_collisions link1="link_arm01" link2="link_non_motor_gear" reason="Never"/>
+    <disable_collisions link1="link_arm01" link2="link_non_motor_support" reason="Never"/>
+    <disable_collisions link1="link_arm01" link2="link_servo" reason="Never"/>
+    <disable_collisions link1="link_arm01" link2="link_waist" reason="Adjacent"/>
+    <disable_collisions link1="link_arm01" link2="link_wrist" reason="Never"/>
+    <disable_collisions link1="link_arm02" link2="link_arm03" reason="Adjacent"/>
+    <disable_collisions link1="link_arm02" link2="link_motor_finger" reason="Never"/>
+    <disable_collisions link1="link_arm02" link2="link_motor_gear" reason="Never"/>
+    <disable_collisions link1="link_arm02" link2="link_motor_support" reason="Never"/>
+    <disable_collisions link1="link_arm02" link2="link_non_motor_finger" reason="Never"/>
+    <disable_collisions link1="link_arm02" link2="link_non_motor_gear" reason="Never"/>
+    <disable_collisions link1="link_arm02" link2="link_non_motor_support" reason="Never"/>
+    <disable_collisions link1="link_arm02" link2="link_waist" reason="Never"/>
+    <disable_collisions link1="link_arm03" link2="link_motor_finger" reason="Never"/>
+    <disable_collisions link1="link_arm03" link2="link_motor_gear" reason="Never"/>
+    <disable_collisions link1="link_arm03" link2="link_motor_support" reason="Never"/>
+    <disable_collisions link1="link_arm03" link2="link_non_motor_finger" reason="Never"/>
+    <disable_collisions link1="link_arm03" link2="link_non_motor_gear" reason="Never"/>
+    <disable_collisions link1="link_arm03" link2="link_non_motor_support" reason="Never"/>
+    <disable_collisions link1="link_arm03" link2="link_servo" reason="Never"/>
+    <disable_collisions link1="link_arm03" link2="link_waist" reason="Never"/>
+    <disable_collisions link1="link_arm03" link2="link_wrist" reason="Adjacent"/>
+    <disable_collisions link1="link_motor_finger" link2="link_motor_gear" reason="Adjacent"/>
+    <disable_collisions link1="link_motor_finger" link2="link_motor_support" reason="Never"/>
+    <disable_collisions link1="link_motor_finger" link2="link_non_motor_gear" reason="Never"/>
+    <disable_collisions link1="link_motor_finger" link2="link_non_motor_support" reason="Never"/>
+    <disable_collisions link1="link_motor_finger" link2="link_servo" reason="Never"/>
+    <disable_collisions link1="link_motor_finger" link2="link_wrist" reason="Never"/>
+    <disable_collisions link1="link_motor_gear" link2="link_motor_support" reason="Never"/>
+    <disable_collisions link1="link_motor_gear" link2="link_non_motor_finger" reason="Never"/>
+    <disable_collisions link1="link_motor_gear" link2="link_non_motor_gear" reason="Never"/>
+    <disable_collisions link1="link_motor_gear" link2="link_non_motor_support" reason="Never"/>
+    <disable_collisions link1="link_motor_gear" link2="link_servo" reason="Default"/>
+    <disable_collisions link1="link_motor_gear" link2="link_waist" reason="Never"/>
+    <disable_collisions link1="link_motor_gear" link2="link_wrist" reason="Adjacent"/>
+    <disable_collisions link1="link_motor_support" link2="link_non_motor_finger" reason="Never"/>
+    <disable_collisions link1="link_motor_support" link2="link_non_motor_gear" reason="Never"/>
+    <disable_collisions link1="link_motor_support" link2="link_non_motor_support" reason="Never"/>
+    <disable_collisions link1="link_motor_support" link2="link_servo" reason="Never"/>
+    <disable_collisions link1="link_motor_support" link2="link_waist" reason="Never"/>
+    <disable_collisions link1="link_motor_support" link2="link_wrist" reason="Adjacent"/>
+    <disable_collisions link1="link_non_motor_finger" link2="link_non_motor_gear" reason="Adjacent"/>
+    <disable_collisions link1="link_non_motor_finger" link2="link_non_motor_support" reason="Never"/>
+    <disable_collisions link1="link_non_motor_finger" link2="link_servo" reason="Never"/>
+    <disable_collisions link1="link_non_motor_finger" link2="link_wrist" reason="Never"/>
+    <disable_collisions link1="link_non_motor_gear" link2="link_non_motor_support" reason="Never"/>
+    <disable_collisions link1="link_non_motor_gear" link2="link_servo" reason="Never"/>
+    <disable_collisions link1="link_non_motor_gear" link2="link_waist" reason="Never"/>
+    <disable_collisions link1="link_non_motor_gear" link2="link_wrist" reason="Adjacent"/>
+    <disable_collisions link1="link_non_motor_support" link2="link_servo" reason="Never"/>
+    <disable_collisions link1="link_non_motor_support" link2="link_wrist" reason="Adjacent"/>
+    <disable_collisions link1="link_servo" link2="link_waist" reason="Never"/>
+    <disable_collisions link1="link_servo" link2="link_wrist" reason="Adjacent"/>
+    <disable_collisions link1="link_waist" link2="link_wrist" reason="Never"/>
+</robot>

@@ -1,0 +1,8 @@
+prefix=/home/chinarrm23/hackathon_ws/install
+
+Name: movit_manipulator_sim
+Description: Description of movit_manipulator_sim
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

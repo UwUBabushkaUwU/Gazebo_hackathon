@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/chinarrm23/hackathon_ws/build
 
 # The main recursive "all" target.
 all: gtest/all
+all: movit_manipulator_sim/all
 all: fanipulator/all
 all: manipulator/all
 
@@ -61,6 +62,7 @@ all: manipulator/all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
+preinstall: movit_manipulator_sim/preinstall
 preinstall: fanipulator/preinstall
 preinstall: manipulator/preinstall
 
@@ -73,6 +75,7 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
+clean: movit_manipulator_sim/clean
 clean: fanipulator/clean
 clean: manipulator/clean
 
@@ -92,7 +95,7 @@ fanipulator/preinstall:
 .PHONY : fanipulator/preinstall
 
 # Recursive "clean" directory target.
-fanipulator/clean: fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/clean
+fanipulator/clean:
 
 .PHONY : fanipulator/clean
 
@@ -170,6 +173,24 @@ manipulator/preinstall:
 manipulator/clean:
 
 .PHONY : manipulator/clean
+
+#=============================================================================
+# Directory level rules for directory movit_manipulator_sim
+
+# Recursive "all" directory target.
+movit_manipulator_sim/all:
+
+.PHONY : movit_manipulator_sim/all
+
+# Recursive "preinstall" directory target.
+movit_manipulator_sim/preinstall:
+
+.PHONY : movit_manipulator_sim/preinstall
+
+# Recursive "clean" directory target.
+movit_manipulator_sim/clean: movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/clean
+
+.PHONY : movit_manipulator_sim/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir
@@ -416,31 +437,31 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
-# Target rules for target fanipulator/CMakeFiles/_catkin_empty_exported_target.dir
+# Target rules for target movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir
 
 # All Build rule for target.
-fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/all:
-	$(MAKE) -f fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/build.make fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/depend
-	$(MAKE) -f fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/build.make fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/build
+movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/all:
+	$(MAKE) -f movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/build.make movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/depend
+	$(MAKE) -f movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/build.make movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chinarrm23/hackathon_ws/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
-.PHONY : fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/all
+.PHONY : movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/all
 
 # Build rule for subdir invocation for target.
-fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
+movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chinarrm23/hackathon_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chinarrm23/hackathon_ws/build/CMakeFiles 0
-.PHONY : fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/rule
+.PHONY : movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 # Convenience name for target.
-_catkin_empty_exported_target: fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/rule
+_catkin_empty_exported_target: movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 .PHONY : _catkin_empty_exported_target
 
 # clean rule for target.
-fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	$(MAKE) -f fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/build.make fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/clean
-.PHONY : fanipulator/CMakeFiles/_catkin_empty_exported_target.dir/clean
+movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/clean:
+	$(MAKE) -f movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/build.make movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/clean
+.PHONY : movit_manipulator_sim/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

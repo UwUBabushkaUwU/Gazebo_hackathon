@@ -6,7 +6,7 @@
   name="manipulator">
   <link name="world">
     <visual>
-        <origin xyz="-0.014790 0.274300 0.079552" rpy="-0.125191 0.448281 -1.594174" />
+        <origin xyz="-0.014790 0.274300 0.1" rpy="-0.125191 0.448281 -1.594174" />
         <geometry>
             <box size="0.01 0.01 0.01" /> <!-- Use a small box for visualization -->
         </geometry>
@@ -18,7 +18,7 @@
 
 <!-- Add a Joint to Connect the Dummy Link to the Base Link -->
 <joint name="joint_world_base_link" type="fixed">
-    <origin xyz="0 0 0.1" rpy="0.52 0.3 0" /> <!-- Adjust this position as necessary -->
+    <origin xyz="0 0 0.2" rpy="0.52 0.3 0" /> <!-- Adjust this position as necessary -->
     <parent link="world" />
     <child link="base_link" />
 </joint>
@@ -871,15 +871,14 @@
     <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
 </transmission>
-
-<!--End of transmissions-->
+<!--End of transmissions -->
 
 <gazebo>
   <plugin name="control" filename="libgazebo_ros_control.so">
     <robotNamespace>/</robotNamespace>
   </plugin>
 </gazebo>
-<gazebo reference="base_link">
+<!-- <gazebo reference="base_link">
   <selfCollide>true</selfCollide>
 </gazebo>
 
@@ -913,7 +912,7 @@
 
 <gazebo reference="link_motor_finger">
   <selfCollide>true</selfCollide>
-</gazebo>
+</gazebo> 
 
 <gazebo reference="link_non_motor_gear">
   <selfCollide>true</selfCollide>
@@ -929,8 +928,8 @@
 
 <gazebo reference="link_non_motor_support">
   <selfCollide>true</selfCollide>
-</gazebo>
-
+</gazebo> 
+ -->
 
 
 </robot>
